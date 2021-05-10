@@ -1,0 +1,46 @@
+html {
+    background-color: rgb(219, 219, 219);
+    margin:0;
+    padding:0;
+    background: #000 url("../bg/852678.jpg") center right fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.p2 {
+    font-weight:bold;
+    font-size: 18px;
+    margin:25px;
+}
+.p1 {
+    font-weight: bolder;
+    font-size: 20px;
+    min-width: 450px;
+    max-width: 450px;
+    background: hsla(0,0%,100%,.5);
+}
+.p3 {
+    font-size: 20px;
+    font-family: Microsoft JhengHei;
+}
+#t01 {
+    text-align: left;
+    background-color: ghostwhite;
+}
+.f01 {
+    margin: auto ;
+    width: 650px ;
+    background: hsla(0,0%,100%,.5);
+}
+.fgls {
+    height: 500px ;
+    width: 650px ;
+    margin:auto ;
+    background:hsla(0,0%,100%,.5);
+}
+.btm { 
+    float:right;
+
+}
+div {
+    text-align: center;
+}
