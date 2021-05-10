@@ -41,7 +41,11 @@
                         if(obj.length==1) //只有一筆代表查不到資料
                                 alert('查無資料');
                   }
-
+    function VerBar() {
+      const VnameElement = document.getElementById("uid"); //定義VanmeElement = 輸入名字的值
+      //const Vname = VnameElement.value; //簡化
+      document.getElementById("uid").value= VnameElement.value + "|";
+    }
           }
     var url="https://script.google.com/macros/s/AKfycbwpemvnFtaVbJcgaOT9j2P4FNx1MZ__lmh_AiroxICMA5AdLCYFB3-H2OYB1AHqs3mJbA/exec";
         xmlhttp.open("get",url+"?uid="+encodeURIComponent(str),true);
@@ -56,6 +60,7 @@
     
     <p class="p2">輸入名字：<input list="Ename" type="text" id="uid" placeholder="在這裡輸入"/>
     <input type="button" name="inq" value="查詢" onclick="showHint(uid.value);">
+    <input type="button" name="Verbar" value="加上|" onclick="VerBar()">
       <datalist id="Ename">
         <option value="盤古|">
         <option value="女媧|">
