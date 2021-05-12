@@ -32,7 +32,7 @@ html {
     background: hsla(0,0%,100%,.5);
 }
 .fgls {
-    height: 500px ;
+    height: auto ;
     width: 650px ;
     margin:auto ;
     background:hsla(0,0%,100%,.5);
