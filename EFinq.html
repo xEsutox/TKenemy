@@ -1,86 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>敵軍戰力查詢S2004</title>
+    <title>敵軍戰力查詢</title>
     <link href="style/styleCss.css" rel="stylesheet" type="text/css">
     <link rel="Shortcut Icon" type="image/x-icon" href="images/favicon.ico" />
 <meta charset="UTF-8" />
   <script type="text/javascript">
-  function showHint(str) 
-  {
-    var xmlhttp;
-
-        if (window.XMLHttpRequest)
-          {// code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp=new XMLHttpRequest();
-          }
-        else
-          {// code for IE6, IE5
-          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-          }
-        xmlhttp.onreadystatechange=function()
-          {
-                  if (xmlhttp.readyState==4 && xmlhttp.status==200)      
-                  {
-                        var result=xmlhttp.responseText;
-                        var obj = JSON.parse(result);//解析json字串為json物件形式
-                                                
-                        var html = '<table id="t01" align="center" border=1 width=580>';//
-                        
-                        for (var i = 0; i < obj.length; i ++ ) {//
-                                html  += '<tr>';//
-                                for(j=0;j<obj[i].data.length;j++)
-                                {
-                                  html+= '<td>'+obj[i].data[j]+'</td>'; 
-                                }
-                                html  += '</tr>';            
-                        }
-                        html+="</table>";
-                        
-                        document.getElementById("order_status").innerHTML=html;
-                        if(obj.length==1) //只有一筆代表查不到資料
-                                alert('查無資料');
-                  }
-          }
-    var url="https://script.google.com/macros/s/AKfycbwpemvnFtaVbJcgaOT9j2P4FNx1MZ__lmh_AiroxICMA5AdLCYFB3-H2OYB1AHqs3mJbA/exec";
-        xmlhttp.open("get",url+"?uid="+encodeURIComponent(str),true);
-        xmlhttp.send();
-  }
-    function VerBar() {
-      const VnameElement = document.getElementById("uid"); //定義VanmeElement = 輸入名字的值
-      //const Vname = VnameElement.value; //簡化
-      document.getElementById("uid").value= VnameElement.value + "|";
-    }
   </script>
 
 </head>
 <body>
 
   <div class="fgls">
-    
-    <p class="p2">輸入名字：<input list="Ename" type="text" id="uid" placeholder="在這裡輸入"/>
-    <input type="button" name="inq" value="查詢" onclick="showHint(uid.value);">
-    <input type="button" name="Verbar" value="加上|" onclick="VerBar()">
-      <datalist id="Ename">
-        <option value="盤古|">
-        <option value="女媧|">
-        <option value="伏羲|">
-        <option value="蚩尤|">
-        <option value="百鳥|">
-        <option value="西門|">
-      </datalist>
-      <br/>
-      <span id="order_status" class="order_status"></span>
-    </p2>
-    <p class="p3">
-      這裡沒有的戰報請給 <span style="color: blue;">宇佐美曉</span>
-    </p>
+    <p class="p3 "style="font-weight: bolder; font-size: 35px">目錄</p>
+    <p class="p3" style="font-weight: bolder;"><a href="https://xesutox.github.io/TKenemy/S2004">S2004</a></p>
+    <br/>
+    <p class="p3" style="font-weight: bolder;"><a href="https://xesutox.github.io/TKenemy/S3">S300X制作中</a></p>
     <br/>
   </div>
   <div id="f01" class="f01" >
-    
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTGEeK-Qtg77aloDMdZ7vrdDa-asbeA3-yHRYCCQxytwvsN6XiES0u6IGAEXaCWbjWyu657h03c8wKr/pubhtml?gid=444772358&amp;
-    single=true&amp;widget=false&amp;headers=false&amp;chrome=false" width="610" height="303" frameborder="0"></iframe>
   </div>
   <br/>
   <div class="btm">
