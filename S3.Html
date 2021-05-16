@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>敵軍戰力查詢S3</title>
+    <link href="style/styleCss.css" rel="stylesheet" type="text/css">
+    <link rel="Shortcut Icon" type="image/x-icon" href="images/favicon.ico" />
+<meta charset="UTF-8" />
+  <script type="text/javascript">
+  function showHint(str) 
+  {
+    var xmlhttp;
+
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+        xmlhttp.onreadystatechange=function()
+          {
+                  if (xmlhttp.readyState==4 && xmlhttp.status==200)      
+                  {
+                        var result=xmlhttp.responseText;
+                        var obj = JSON.parse(result);//解析json字串為json物件形式
+                                                
+                        var html = '<table id="t01" align="center" border=1 width=580>';//
+                        
+                        for (var i = 0; i < obj.length; i ++ ) {//
+                                html  += '<tr>';//
+                                for(j=0;j<obj[i].data.length;j++)
+                                {
+                                  html+= '<td>'+obj[i].data[j]+'</td>'; 
+                                }
+                                html  += '</tr>';            
+                        }
+                        html+="</table>";
+                        
+                        document.getElementById("order_status").innerHTML=html;
+                        if(obj.length==1) //只有一筆代表查不到資料
+                                alert('查無資料');
+                  }
+
+          }
+    var url="https://script.google.com/macros/s/AKfycbzC7GmFKfAEmg-nXXs_cJkxYUYkldNebBSeUZY5NBOu5CNkzHAfatDKEplJ8NJmRNomNg/exec";
+        xmlhttp.open("get",url+"?uid="+encodeURIComponent(str),true);
+        xmlhttp.send();
+  }
+    function VerBar() {
+      const VnameElement = document.getElementById("uid"); //定義VanmeElement = 輸入名字的值
+      //const Vname = VnameElement.value; //簡化
+      document.getElementById("uid").value= VnameElement.value + "|";
+    }
+  </script>
+
+</head>
+<body>
+
+  <div class="fgls">
+    
+    <p class="p2">輸入名字：<input list="Ename" type="text" id="uid" placeholder="在這裡輸入"/>
+    <input type="button" name="inq" value="查詢" onclick="showHint(uid.value);">
+    <input type="button" name="Verbar" value="加上|" onclick="VerBar()">
+      <datalist id="Ename">
+        <option value="|">
+      </datalist>
+      <br/>
+      <span id="order_status" class="order_status"></span>
+    </p2>
+    <p class="p3">
+      這裡沒有的戰報請給 <span style="color: blue;">宇佐美曉</span>
+    </p>
+    <br/>
+  </div>
+  <div id="f01" class="f01" >
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTTwpPHx7aSpm4bCLTEm0ihmby6znVDrME5FXgIAVq4VFIlFmDRA7dMa4LVXCHabPakHFHIYgijiUb/pubhtml?gid=1711941667&amp;
+    single=true&amp;widget=false&amp;headers=false&amp;chrome=false" width="612" height="326" frameborder="0"></iframe>
+    </div>
+  <br/>
+  <div class="btm">
+    <p class="p1">By 荊州方面軍情報部戰力分析及整理小組 第二組</p>
+  </div>
+</body>
+</html>
